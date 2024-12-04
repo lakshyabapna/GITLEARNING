@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            height: 800px;
+            border: 2px solid black;
+            grid-template-columns: repeat(5,1fr);
+            justify-content: center;
+        }
+
+        .child {
+            border: 2px solid red;
+        }
+
+        .child1 {
+            background-color: blue;
+            grid-column-start: 4;
+            grid-row-start: 4;
+        }
+
+        .child2 {
+            background-color: red;
+            /* grid-row-start:1;
+            grid-row-end:7; */
+            grid-row:1/span 6
+        }
+
+        .child3 {
+            background-color: pink;
+            grid-row-start: 1;
+            grid-column-end: 6;
+            grid-column-start: 2;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Collapsing Cell</h1>
+    <div class="container">
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child child1"></div>
+        <div class="child"></div>
+
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child2"></div>
+        <div class="child"></div>
+
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child3"></div>
+        <div class="child"></div>
+
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+    </div>
+</body>
+</html>
