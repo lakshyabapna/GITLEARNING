@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beautiful Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f4f8;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .calc {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 260px;
+    }
+    .display {
+      width: 100%;
+      height: 40px;
+      text-align: right;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      padding-right: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+    button {
+      padding: 15px;
+      font-size: 1rem;
+      border: none;
+      background: #e0e0e0;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button.operator { background: #ffb74d; color: #fff; }
+    button.equal { background: #4caf50; color: #fff; grid-column: span 2; }
+    button.clear { background: #f44336; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <div class="calc">
+    <input type="text" class="display" id="display" readonly />
+    <div class="buttons">
+      <button>7</button><button>8</button><button>9</button><button class="operator">/</button>
+      <button>4</button><button>5</button><button>6</button><button class="operator">*</button>
+      <button>1</button><button>2</button><button>3</button><button class="operator">-</button>
+      <button>0</button><button>.</button><button class="operator">+</button>
+      <button class="clear">C</button><button class="equal">=</button>
+    </div>
+  </div>
+  <script>
+    const display = document.getElementById('display');
+    const buttons = document.querySelectorAll('.buttons button');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = btn.textContent;
+        if (val === 'C') {
+          display.value = '';
+        } else if (val === '=') {
+          try { display.value = eval(display.value); } catch { display.value = 'Error'; }
+        } else {
+          display.value += val;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
